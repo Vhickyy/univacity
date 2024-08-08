@@ -1,0 +1,57 @@
+/* .filterCon{
+    background-color: yellow;
+    height: 100vh;
+} */
+
+.filter{
+    width: fit-content;
+    position: sticky;
+    top: 2rem;
+    overflow-y: scroll;
+    max-height: 90vh;
+    padding-bottom: 1rem;
+    padding-right: 1rem;
+    z-index: 10;
+}
+
+.hideFilter{
+    display: none;
+}
+
+aside > .sub-filter{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.check{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.check input{
+    height: 1.4rem;
+    width: 1.4rem;
+}
+
+.filter > aside{
+    border-bottom: 1px solid #E7EBF4;
+    display: grid;
+    gap: .8rem;
+    padding-block: 1rem;
+}
+
+aside > div {
+    display: grid;
+    gap: .5rem;
+}
+
+
+
+@media screen and (min-width: 700px) {
+    .filter{
+        /* display: block; */
+    }
+}

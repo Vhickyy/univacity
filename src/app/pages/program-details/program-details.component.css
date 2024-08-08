@@ -1,0 +1,205 @@
+.program-header{
+    width: min(90%,1400px);
+    margin-inline: auto;
+}
+
+.details{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.course-info{
+    display: grid;
+    gap: 1rem;
+}
+
+.course-img{
+    border-radius: 1rem;
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+}
+
+.switch-grid{
+    display: grid;
+    gap: 1rem;
+}
+
+.flex{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+
+.details-footer img{
+    background-color: #F64444;
+    padding: .8rem .8rem;
+    border-radius: .7rem;
+}
+
+.details .fav{
+    background-color: white;
+    border: 1px solid #C5CBDA;
+}
+
+.details button{
+    background-color: #184EC9;
+    color: white;
+    border: transparent;
+    padding: .8rem .8rem;
+    border-radius: .5rem;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.views{
+    border: 1px solid #E7EBF4;
+    box-shadow: 1px 2px 40px 5px #00000005;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-block: 3rem;
+}
+
+.views > div{
+    background-color: white;
+    border: 1px solid #E7EBF4;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.duration{
+    background: #EDF2FD;
+    border-radius: 1rem;
+    padding: 2rem;
+    justify-content: space-around;
+}
+
+.overview-nav{
+    border: 1px solid #E7EBF4;
+    padding-block: 1.5rem;
+    margin-block: 3rem;
+    position: sticky;
+    top: 0;
+    background-color: #FAFAFA;
+}
+
+.overview-nav aside{
+    width: 90%;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.overview-nav .flex{
+    gap: 4rem;
+}
+
+.info{
+    background-color: white;
+    padding-block: 4rem;
+    margin-top: 4rem;
+}
+
+.info button{
+    background: #184EC9;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: .5rem;
+}
+
+.info .space{
+    justify-content: space-between;
+}
+
+.info aside{
+    display: grid;
+    gap: 1rem;
+}
+
+.overview-body{
+    width: 90%;
+    margin-inline: auto;
+    display: grid;
+    gap: 2rem;
+}
+
+.overview-body p{
+    line-height: 2rem;
+    margin-bottom: 1rem;
+}
+
+.overview-body h3{
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.fee{
+    width: min(30rem,100%);
+    background-color: white;
+    border: 1px solid #E7EBF4;
+    color: black;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    z-index: -1;
+}
+
+.fee p, .info p{
+    margin-bottom: 0;
+}
+
+.fee > div > div{
+    padding: 1.5rem;
+    border-bottom: 1px solid #E7EBF4;
+    display: flex;
+    align-items: center;
+    /* gap: 1rem; */
+}
+
+@media screen and (min-width:600px) {
+    .switch-grid{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width:900px) {
+    
+    .details{
+        flex-direction: row;
+    }
+
+    .details > aside{
+        width: 50%;
+        height: auto;
+    }
+
+    .course-img{
+        height: 20rem;
+    }
+
+    .switch-grid{
+        display: grid;
+    }
+
+    .overview-body{
+        grid-template-columns: 1fr 23rem;
+        gap: 3rem;
+    }
+
+    .fee{
+        width: 23rem;
+    }
+
+}
+
+@media screen and (min-width:1200px) {  
+    .switch-grid{
+        display: flex;
+        justify-content: space-between;
+    }
+}

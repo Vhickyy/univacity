@@ -1,0 +1,95 @@
+<section [ngClass]="showFilter ? 'filter' : 'hideFilter'">
+<!-- <section class="filter"> -->
+    <h2>Filter by</h2>
+    <aside>
+        <div class="sub-filter">
+            <h3>Attendance</h3>
+            <img src="../../../assets/arrow-down.svg" alt="arrow-down">
+        </div>
+        <div>
+            @for(studyVia of attendance; track studyVia;){
+                <div class="check">
+                    <input type="checkbox" [id]="" name="studyVia" (change)="onFilterChange('attendance', studyVia)">
+                    <label [for]="studyVia">{{studyVia}}</label>
+                </div>
+            }
+        </div>
+    </aside>
+    <aside>
+        <div class="sub-filter">
+            <h3>Tution Fee</h3>
+            <img src="../../../assets/arrow-down.svg" alt="arrow-down">
+        </div>
+        <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
+        <div>Selected Range: {{minValue}} - {{maxValue}}</div>
+    </aside>
+    <aside>
+        <div class="sub-filter">
+            <h3>Languages</h3>
+            <img src="../../../assets/arrow-down.svg" alt="arrow-down">
+        </div>
+        <div>
+            <input type="text" placeholder="Search Language">
+        </div>
+        <div>
+            @for(language of languages; track language.name;){
+                <!-- (change)="onFilterChange('language', language.name)" -->
+                <div class="check">
+                    <input type="checkbox" [id]="language.name" name="language" (change)="onFilterChange('language', language.name)">
+                    <label [for]="language.name">{{language.name}} ({{language.count}})</label>
+                </div>
+            }
+        </div>
+    </aside>
+    <aside>
+        <div class="sub-filter">
+            <h3>Level</h3>
+            <img src="../../../assets/arrow-down.svg" alt="arrow-down">
+        </div>
+        <div>
+            @for(level of levels; track level;){
+                <div class="check">
+                    <input type="checkbox" [id]="" name="level" (change)="onFilterChange('level', level)">
+                    <label [for]="level">{{level}}</label>
+                </div>
+            }
+        </div>
+    </aside>
+
+    <aside>
+        <div class="sub-filter">
+            <h3>Type</h3>
+            <img src="../../../assets/arrow-down.svg" alt="arrow-down">
+        </div>
+        <div>
+            @for(type of studyType; track type;){
+                <div class="check">
+                    <input type="checkbox" [id]="" name="type" (change)="onFilterChange('type', type)">
+                    <label [for]="type">{{type}}</label>
+                </div>
+            }
+        </div>
+    </aside>
+
+    <aside>
+        <div class="sub-filter">
+            <h3>Duration</h3>
+            <img src="../../../assets/arrow-down.svg" alt="arrow-down">
+        </div>
+        <div>
+            <div class="check">
+                <input type="checkbox" id="arabic" name="arabic">
+                <label for="arabic">6 - 12 Months (20)</label>
+            </div>
+            <div class="check">
+                <input type="checkbox" id="arabic" name="arabic">
+                <label for="arabic">1 - 3 Years (61)</label>
+            </div>
+            <div class="check">
+                <input type="checkbox" id="arabic" name="arabic">
+                <label for="arabic">3 - 5 Years (182)</label>
+            </div>
+        </div>
+    </aside>
+
+</section>

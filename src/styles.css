@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,html{
+    background-color: #FAFAFA;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+}
+

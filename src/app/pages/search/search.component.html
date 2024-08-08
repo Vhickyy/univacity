@@ -1,0 +1,112 @@
+
+<main  >
+    <div class="main main2" #main>
+        <div>
+            <app-filter [showFilter]="showFilter"></app-filter>
+        </div>
+        
+        <section>
+            <div >
+                <div (click)="toggleSideBar()" class="ham">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="sub-heading">
+                    <h4>Programs</h4>
+                    <div></div>
+                    <p>Saved programs (89)</p>
+                    <div></div>
+                    <p>Applied (29)</p>
+                </div>
+            </div>
+            <div class="sec-2">
+                <div class="search-input">
+                    <img src="../../../assets/search-icon.svg" alt="search">
+                    <input type="text" placeholder="Search for programs">
+                </div>
+                <div>
+                    <label>Sort by:</label>
+                    <select name="sort" id="sort">
+                        <option value="Popularity">Popularity</option>
+                        <option value="Popularity">Popularity</option>
+                        <option value="Popularity">Popularity</option>
+                        <option value="Popularity">Popularity</option>
+                    </select>
+                </div>
+    
+            </div>
+            @if(!courses.length){
+                <div class="empty">
+                    <h2>No Course to display.</h2>
+                </div>
+            }@else{
+            <aside class="program-row">
+                @for(course of courses | paginate:{itemsPerPage,currentPage,totalItems}; track course){
+                    <div class="course" >
+                        <div class="img-container">
+                            <img routerLink="program-detail" src="../../../assets/course.jpeg"  alt="univacity-logo" class="course-img">
+                            <div class="fav">
+                                <img 
+                                [src]="!course.isFav ? '../../../assets/heart.svg' : '../../../assets/heartfilled.svg'" 
+                                alt="heart"
+                                (click)="toggleFav(course.id)">
+                            </div>
+                        </div>
+                        <div class="course-detail">
+                            <div class="flex">
+                                <img [src]="course.country.flag" alt="country">
+                                <p>{{course.country.name}}</p>
+                            </div>
+                            <h3>{{course.courseTitle}}</h3>
+                            <div class="flex space">
+                                <div class="flex">
+                                    <div [ngClass]="[course.learn.toLowerCase() == 'e-learning' ? 'e-learning' : course.learn.toLowerCase() == 'hybrid' ? 'hybrid' : 'on-campus' ]"></div>
+                                    <p>{{course.learn}}</p>
+                                </div>
+                                <div class="flex">
+                                    <img [src]="course.learn == 'Hybrid' ? '../../../assets/red-date.svg' : '../../../assets/green-date.svg' " alt="country">
+                                    <p>{{course.date}}</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                @for(language of course.language; track language){
+                                    <div class="flex">
+                                        <img [src]="language.img" alt="country">
+                                        <p>{{language.abbr}}</p>
+                                    </div>
+                                }
+                            </div>
+                            <div class="flex">
+                                <p>{{course.duration.type}}</p>
+                                <span></span>
+                                <p>{{course.level}}</p>
+                                <span></span>
+                                <p>{{course.duration.year}}</p>
+                            </div>
+                            <p class="price">$45,000/ <span>year</span></p>
+                        </div>
+                        <div class="absolute">
+                            <img src="../../../assets/unilogo.svg" alt="country">
+                            <p>{{course.university}}</p>
+                            @if(course.official){
+                                <img src="../../../assets/applied.svg" alt="country">
+                            }
+                        </div>
+                    </div>
+                }
+            </aside>
+            }
+            @if(courses.length){
+                <div class="pagination">
+                    <pagination-controls
+                        previousLabel="" 
+                        nextLabel=""
+                        (pageChange)="currentPage = $event">
+                    </pagination-controls>
+                </div>
+            }
+        </section>    
+    </div>
+   
+</main>
